@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+a {
+  text-decoration: none;
+}
+
+.zoom {
+  transition: all .6s ease;
+
+}
+
+.zoom:hover {
+  scale: 1.05;
+  box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+label {
+  color: white;
+}
+
+.contenedor {
+  text-align: left;
+  margin-top: 20px;
+  max-width: 90%;
+  margin-top: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sombra {
+  box-shadow: 0px -1px 3px 3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -1px 3px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -1px 3px 3px rgba(0, 0, 0, 0.75);
+}
+
+.titulo {
+  color: rgba(0, 0, 0, 0.78);
+  margin-bottom: 25px;
+  /* border-bottom: white 2px solid; */
+}

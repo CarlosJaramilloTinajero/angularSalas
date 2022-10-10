@@ -1,0 +1,21 @@
+<app-titulo2 titulo="Agregar nueva sala"></app-titulo2>
+<div class="contenedor w-50">
+    <form action="" (ngSubmit)="onSubmit()">
+        <label for="" class="form-label" style="color: black;">Nombre de la sala {{nombre}}</label>
+        <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control" required><br>
+
+        <label for="" class="form-label" style="color: black;">Ubicacion</label>
+        <textarea id="" class="form-control" [(ngModel)]="ubicacion" name="ubicacion" rows="2" cols="50"></textarea><br>
+
+        <label for="" class="form-label" style="color: black;">Descripcion</label>
+        <textarea id="" name="descripcion" rows="2" [(ngModel)]="descripcion" cols="50" class="form-control"></textarea><br>
+
+        <label for="" class="form-label" style="color: black;">Estado</label>
+        <select class="form-select" name="estado" [(ngModel)]="estado">
+            <option value="activa">Activa</option>
+            <option value="inactiva">Inactiva</option>
+        </select><br>
+
+        <input type="submit" class="btn btn-primary" value="Agregar">
+    </form>
+</div>

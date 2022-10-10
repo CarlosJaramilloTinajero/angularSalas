@@ -1,0 +1,26 @@
+.colorCard {
+    background-color: rgba(32, 120, 192, 0.948);
+}
+
+.colorCard2 {
+    background-color: rgba(11, 156, 23, 0.9);
+}
+
+.letrasCard {
+    color: white;
+}
+
+.carta {
+    height: 130px;
+    width: 260px;
+}
+
+.card_foot {
+    color: white;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.card_foot:hover {
+    color: white;
+}
