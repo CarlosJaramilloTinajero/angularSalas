@@ -1,0 +1,23 @@
+.col1 {
+    border: rgb(0, 0, 0, 0.2) 1.5px solid;
+    margin-right: 10px;
+    margin-left: -10px;
+    min-width: 900px;
+    margin-top: 10px;
+}
+
+.col2 {
+    border: rgb(0, 0, 0, 0.2) 1.5px solid;
+    min-width: 300px;
+    max-width: 450px;
+    margin-top: 10px;
+}
+
+.Agregada{
+    visibility: visible;
+}
+.NoMostrar{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+}

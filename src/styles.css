@@ -14,6 +14,13 @@ a {
   -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+hr {
+  color: rgba(0, 0, 0, 0.80);
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 label {
   color: white;
 }

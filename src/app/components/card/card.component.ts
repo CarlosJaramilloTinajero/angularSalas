@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
         this.link = "ListaSalas";
         break;
       case "reservas":
-        this.link = "";
+        this.link = "NuevaReserva";
         break;
     }
   }

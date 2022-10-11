@@ -15,7 +15,12 @@ import { Titulo2Component } from './components/titulo2/titulo2.component';
 import { SalaTablaComponent } from './components/sala-tabla/sala-tabla.component';
 import { AddSalaComponent } from './components/add-sala/add-sala.component';
 import { FormsModule } from '@angular/forms';
-import {ModalModule} from 'ngx-bootstrap/modal'
+import {ModalModule} from 'ngx-bootstrap/modal';
+import { ReservarSalaComponent } from './components/reservar-sala/reservar-sala.component';
+import { TablaReservasComponent } from './components/tabla-reservas/tabla-reservas.component';
+import { ObtenerSalaComponent } from './components/obtener-sala/obtener-sala.component';
+import { NuevaReservaComponent } from './components/nueva-reserva/nueva-reserva.component';
+import { ReservasComponent } from './components/reservas/reservas.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import {ModalModule} from 'ngx-bootstrap/modal'
     ListaSalasComponent,
     Titulo2Component,
     SalaTablaComponent,
-    AddSalaComponent
+    AddSalaComponent,
+    ReservarSalaComponent,
+    TablaReservasComponent,
+    ObtenerSalaComponent,
+    NuevaReservaComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,

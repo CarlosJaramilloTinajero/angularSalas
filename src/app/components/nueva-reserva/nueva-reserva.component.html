@@ -1,0 +1,28 @@
+<form action="" method="POST" (ngSubmit)="onSubmit();">
+    
+    <label for="" class="form-label" style="color: black;"><strong>Seleccionar sala</strong></label>
+    <select class="form-select" name="sala" [(ngModel)]="reserva.sala_id">
+        <option *ngFor="let sala of salas; let indice=index;" [selected]="indice==0" [value]="sala.id">{{sala.nombre}}
+        </option>
+    </select><br>
+
+    <label for="" class="form-label" style="color: black;"><strong>Reserva a nombre de:</strong></label>
+    <input type="text" name="a_nombre_de" [(ngModel)]="reserva.a_nombre_de" class="form-control" id="" required><br>
+
+    <label for="" class="form-label" style="color: black;"><strong>Dia de reserva:</strong></label>
+    <input type="date" name="dia" id="dia" [(ngModel)]="reserva.dia" class="form-control" required><br>
+
+    <label for="" class="form-label" style="color: black;"><strong>Desde:</strong></label>
+    <input type="time" name="desde" class="form-control" [(ngModel)]="reserva.desde" id="inicio" required><br>
+
+    <label for="" class="form-label" style="color: black;"><strong>Hasta:</strong></label>
+    <input type="time" name="hasta" class="form-control" [(ngModel)]="reserva.hasta" id="final" required><br>
+    <div id="alerta"></div>
+
+    <label for="" class="form-label" style="color: black;"><strong>Observaciones</strong></label>
+    <textarea name="observaciones" id="" class="form-control" [(ngModel)]="reserva.observaciones" cols="2" rows="3"
+        required></textarea><br>
+    <div class="col d-flex justify-content-end">
+        <input type="submit" value="Reservar" class="btn btn-secondary d-flex justify-content-end">
+    </div>
+</form>

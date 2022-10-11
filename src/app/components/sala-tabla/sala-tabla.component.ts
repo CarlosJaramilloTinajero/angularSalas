@@ -13,7 +13,6 @@ export class SalaTablaComponent implements OnInit {
 
   salas: Sala[] = [];
   salaModal: Sala = new Sala();
-  Mnombre: string = "";
   @Output() successEvent: EventEmitter<string> = new EventEmitter();
   constructor(private salaService: SalaServiceService) { }
 
@@ -31,8 +30,11 @@ export class SalaTablaComponent implements OnInit {
 
   Modal(sala: Sala) {
     this.salaModal = new Sala();
-    this.salaModal = sala;
-    this.Mnombre = sala.nombre;
+    this.salaModal.id = sala.id;
+    this.salaModal.nombre = sala.nombre;
+    this.salaModal.ubicacion = sala.ubicacion;
+    this.salaModal.descripcion = sala.descripcion;
+    this.salaModal.estado = sala.estado;
   }
 
   EliminarSala() {
