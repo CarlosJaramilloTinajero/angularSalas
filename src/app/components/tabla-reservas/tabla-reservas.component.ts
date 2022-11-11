@@ -9,6 +9,7 @@ import { Sala } from 'src/app/Models/sala';
 })
 export class TablaReservasComponent implements OnInit {
 
+  minDia: string = "";
   @Input() reservas: Reservas[] = [];
   @Input() salas: Sala[] = [];
   @Output() eliminarReservaEvento: EventEmitter<Reservas> = new EventEmitter();
@@ -18,6 +19,7 @@ export class TablaReservasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.minDia = this.getDiaActual();
   }
 
   Modal(reserva: Reservas) {
@@ -38,4 +40,14 @@ export class TablaReservasComponent implements OnInit {
   EditarReserva() {
     this.editarReserva.emit(this.reservaModal);
   }
+
+  getDiaActual(): string {
+    var diaActual: Date = new Date();
+    var dia: string = diaActual.getDate().toString();
+    var mes: string = (diaActual.getMonth() + 1).toString();
+    var ano: string = diaActual.getFullYear().toString();
+
+    return ano + "-" + mes + "-" + dia;
+  }
+
 }

@@ -9,10 +9,17 @@ import { Sala } from '../Models/sala';
 export class SalaServiceService {
 
   salas: Sala[] = [];
+  // LocalHost
   url: string = "http://127.0.0.1:8000/getSalas";
   urlPost: string = "http://127.0.0.1:8000/addSala";
   urlDelete: string = "http://127.0.0.1:8000/deleteSala/";
   urlUpdate: string = "http://127.0.0.1:8000/updateSala/";
+
+  // HostLocal
+  // url: string = "http://192.168.100.74/salas/public/getSalas";
+  // urlPost: string = "http://192.168.100.74/salas/public/addSala";
+  // urlDelete: string = "http://192.168.100.74/salas/public/deleteSala/";
+  // urlUpdate: string = "http://192.168.100.74/salas/public/updateSala/";
 
   httpOptions = {
     headers: {

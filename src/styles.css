@@ -45,3 +45,67 @@ label {
   margin-bottom: 25px;
   /* border-bottom: white 2px solid; */
 }
+
+.btn {
+  transition: all .3s ease-in-out;
+  background-color: unset;
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
+  border: unset;
+  transition: all .5s ease-in-out;
+}
+
+/* .btn:hover { */
+/* background-color: unset; */
+/* color: white; */
+/* } */
+
+.btn-primary {
+  border: 2px rgba(26, 63, 185, 0.87) solid;
+  color: rgba(26, 63, 185, 1);
+}
+
+.btn-primary:hover {
+  background-color: rgba(26, 63, 185, 0.87);
+}
+
+.btn-secondary {
+  border: 2px rgba(131, 135, 148, 0.87) solid;
+  color: rgba(131, 135, 148, 1);
+  /* background-color: rgba(131, 135, 148, 0.87); */
+  color: rgba(131, 135, 148, 1);
+  font-size: 15px;
+}
+
+.btn-secondary:hover {
+  /* border: none; */
+  background-color: rgba(123, 126, 136, 0.87);
+}
+
+.btn-danger {
+  border: 2px rgba(190, 21, 21, 0.842) solid;
+  color: rgba(190, 21, 21, 1);
+  /* background-color: rgba(131, 135, 148, 0.87); */
+  color: rgba(190, 21, 21, 1);
+  font-size: 15px;
+}
+
+.btn-danger:hover {
+  /* border: none; */
+  background-color: rgba(190, 21, 21, 0.87);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: -3px 5px 3px 1px rgba(0, 0, 0, 0.75);
+}
+
+.btn-group .btn:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-group {
+  transition: all .3s ease-in-out;
+}

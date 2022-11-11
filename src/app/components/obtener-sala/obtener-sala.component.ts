@@ -20,10 +20,10 @@ export class ObtenerSalaComponent implements OnInit {
 
   getSala() {
     this.salas.forEach(sala => {
-      console.log(sala.nombre);
+      // console.log(sala.nombre);
       if (sala.id == this.reserva.sala_id) {
         this.reservaSala = sala.nombre;
-        console.log(this.reservaSala);
+        // console.log(this.reservaSala);
       }
     });
   }

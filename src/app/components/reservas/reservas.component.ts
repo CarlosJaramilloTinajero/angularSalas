@@ -3,6 +3,7 @@ import { Reservas } from 'src/app/Models/reservas';
 import { Sala } from 'src/app/Models/sala';
 import { ReservasService } from 'src/app/Services/reservas.service';
 import { SalaServiceService } from 'src/app/Services/sala-service.service';
+import { interval, timer } from 'rxjs';
 
 @Component({
   selector: 'app-reservas',
@@ -11,6 +12,7 @@ import { SalaServiceService } from 'src/app/Services/sala-service.service';
 })
 export class ReservasComponent implements OnInit {
 
+  class: string = "";
   success: number = 0;
   msg: string = "";
   salas: Sala[] = [];
@@ -28,14 +30,13 @@ export class ReservasComponent implements OnInit {
   }
 
   getReservas() {
-    this.reservasService.getReservas().subscribe(data => {
-      this.reservas = data;
-    });
+    this.reservasService.getReservas().subscribe(data => this.reservas = data);
   }
 
   getSalas() {
     this.salasService.getSalas().subscribe(data => {
       this.salas = data;
+      // this.salas.forEach(sala => console.log(sala.nombre))
     });
   }
 
@@ -45,6 +46,7 @@ export class ReservasComponent implements OnInit {
       console.log(data);
       this.success = 1;
       this.msg = "Reserva eliminada correctamente";
+      this.class = "alert alert-success";
     });
   }
 
@@ -53,6 +55,7 @@ export class ReservasComponent implements OnInit {
       this.getReservas();
       this.success = 1;
       this.msg = "Reserva modificada correctamente";
+      this.class = "alert alert-success";
     });
   }
 
