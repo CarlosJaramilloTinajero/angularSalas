@@ -2,18 +2,26 @@
 <div class="contenedor" style="margin-top: 0;">
     <app-alert (quitarAlert)="msg=''; success=0; class='';" [msg]="msg" [mostrar]="success" [class]="class"></app-alert>
     <div class="row">
-        <div class="col rounded col1">
-            <h4 style="margin-top: 22px; margin-left: 10px;">Reservas</h4>
-            <hr>
-            <div class="buscador">
-                <input type="text" name="" id="" placeholder="Buscar" [(ngModel)]="buscardor" class="form-control">
+        <div class="col rounded col1 conteedorAbajo">
+            <div class="d-flex">
+                <h4 style="margin-top: 22px; margin-left: 10px;">Reservas</h4>
+
+                <button *ngIf="mostrar" class="btn btn-secondary btn-sm mostrar" (click)="mostrar = !mostrar">Ver
+                    calendario</button>
+                <button *ngIf="!mostrar" class="btn btn-secondary btn-sm mostrar" (click)="mostrar = !mostrar">Ver
+                    tabla</button>
+
             </div>
-            <app-tabla-reservas (editarReserva)="updateReserva($event);"
-                (eliminarReservaEvento)="deleteReserva($event);" [reservas]="(reservasFilter | filterReservas: buscardor:salas)"
-                [salas]="salas">
+            <hr style="margin: 10px;">
+            
+            <app-tabla-reservas *ngIf="mostrar" (editarReserva)="updateReserva($event);"
+                (eliminarReservaEvento)="deleteReserva($event);" [reservas]="(reservasFilter)" [salas]="salas" [maxReservas]="reservas.length">
             </app-tabla-reservas>
+
+            <app-calendario *ngIf="!mostrar" [salas]="salas" [reservas]="reservas"></app-calendario>
+
         </div>
-        <div class="col rounded col2">
+        <div class="col rounded col2 conteedorAbajo">
             <h4 style="margin-top: 22px; margin-left: 10px;">Nueva reservas</h4>
             <hr>
             <app-nueva-reserva (addReserva)="addReserva($event);" [salas]="salasActivas" [reservas]="reservas">

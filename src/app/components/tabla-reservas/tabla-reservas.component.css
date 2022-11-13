@@ -1,0 +1,59 @@
+.btnG {
+    opacity: 1;
+    border: none;
+    border-bottom: 2px rgb(0,0,0,0.4) solid;
+    background-color: unset;
+    transition: all .3s ease-in-out;
+}
+
+.btnG:hover {
+    transform: translateY(2px);
+    color: black;
+    /* scale: 1.03; */
+    border: none;
+    background-color: unset;
+    -webkit-box-shadow: inset 0px 0px 6px 2px rgb(0,0,0,0.4);
+    -moz-box-shadow: inset 0px 0px 6px 2px rgb(0,0,0,0.4);
+    box-shadow: inset 0px 0px 6px 2px rgb(0,0,0,0.4);
+}
+
+.formularioMax {
+    display: flex;
+}
+
+.formularioMax label {
+    margin-top: 8px;
+    margin-right: 10px;
+    color: black;
+}
+
+.formularioMax input {
+    background-color: unset;
+    color: black;
+    border: none;
+    border-bottom: 2px rgb(0,0,0,0.7) solid;
+
+    transition: all .7 ease-in-out;
+    margin-right: 10px;
+    /* width: 10px; */
+}
+
+.formularioMax input:focus {
+    background-color: unset;
+    /* color: b; */
+    border: none;
+    -webkit-box-shadow: inset 0px 0px 6px 2px rgb(0,0,0,0.4);
+    -moz-box-shadow: inset 0px 0px 6px 2px rgb(0,0,0,0.4);
+    box-shadow: inset 0px 0px 6px 2px rgb(0,0,0,0.4);
+    /* border: 1px rgb(34, 145, 179, 1) solid; */
+}
+
+.formularioMax input button {
+    background-color: unset;
+    /* color: white; */
+    border: none;
+}
+
+.maxFilas {
+    width: 70px;
+}

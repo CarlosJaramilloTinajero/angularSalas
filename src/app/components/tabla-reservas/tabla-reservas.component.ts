@@ -9,13 +9,24 @@ import { Sala } from 'src/app/Models/sala';
 })
 export class TablaReservasComponent implements OnInit {
 
+  buscardor: string = "";
   minDia: string = "";
+  @Input() mostrarAcciones: boolean = true;
   @Input() reservas: Reservas[] = [];
   @Input() salas: Sala[] = [];
   @Output() eliminarReservaEvento: EventEmitter<Reservas> = new EventEmitter();
   @Output() editarReserva: EventEmitter<Reservas> = new EventEmitter();
   reservaModal: Reservas = new Reservas();
   nombre: string = "";
+
+
+  // Maximo filas tabla
+  @Input() maxReservas: number = 0;
+  maxFilas: number = 25;
+  maxFilasInput = this.maxFilas;
+  pagina: number = 1;
+  paginaA: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -48,6 +59,28 @@ export class TablaReservasComponent implements OnInit {
     var ano: string = diaActual.getFullYear().toString();
 
     return ano + "-" + mes + "-" + dia;
+  }
+
+  // Tabla maximo filas
+  siguiente() {
+    if (this.pagina * this.maxFilas < this.reservas.length) {
+      this.pagina++;
+      this.paginaA++;
+      // console.log(this.items.length);
+    }
+  }
+
+  anterior() {
+    if (this.pagina > 1) {
+      this.pagina--;
+      this.paginaA--;
+    }
+  }
+
+  maxFilasEvent() {
+    this.maxFilas = this.maxFilasInput;
+    this.pagina = 1;
+    this.paginaA = 0;
   }
 
 }

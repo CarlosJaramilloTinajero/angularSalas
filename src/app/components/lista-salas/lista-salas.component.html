@@ -1,6 +1,9 @@
 <app-titulo2 titulo="Lista de salas"></app-titulo2>
-<div class="contenedor">
+<div class="contenedor conteedorAbajo">
     <a routerLink="../AgregarSala" class="btn btn-primary" style="margin-top: -100px;">Agregar sala</a>
-    <app-alert (quitarAlert)="msg=''; success=0; class='';" [msg]="msg" [mostrar]="success" [class]="class"></app-alert>
-    <app-sala-tabla (successEvent)="SuccessEvent($event)"></app-sala-tabla>
+    <div class="centrarTabla">
+        <app-alert (quitarAlert)="msg=''; success=0; class='';" [msg]="msg" [mostrar]="success" [class]="class">
+        </app-alert>
+        <app-sala-tabla (successEvent)="SuccessEvent($event)"></app-sala-tabla>
+    </div>
 </div>

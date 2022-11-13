@@ -1,3 +1,7 @@
+body {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 a {
   text-decoration: none;
 }
@@ -7,11 +11,34 @@ a {
 
 }
 
+.conteedorAbajo {
+  -webkit-box-shadow: inset 0px 0px 6px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 6px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 6px 2px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  border-radius: 6px;
+}
+
+.centrarTabla {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 15px;
+}
+
 .zoom:hover {
   scale: 1.05;
   box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 7px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buscador {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 hr {

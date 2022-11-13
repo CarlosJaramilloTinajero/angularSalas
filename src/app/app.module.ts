@@ -23,6 +23,8 @@ import { NuevaReservaComponent } from './components/nueva-reserva/nueva-reserva.
 import { ReservasComponent } from './components/reservas/reservas.component';
 import { AlertComponent } from './components/alert/alert.component'
 import { FilterPipe } from './pipes/filter.pipe';
+import { CalendarioReservasComponent } from './components/calendario-reservas/calendario-reservas.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     NuevaReservaComponent,
     ReservasComponent,
     AlertComponent,
-    FilterPipe
+    FilterPipe,
+    CalendarioReservasComponent,
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,

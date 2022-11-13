@@ -11,7 +11,8 @@ import { SalaServiceService } from 'src/app/Services/sala-service.service';
 })
 export class ReservarSalaComponent implements OnInit {
 
-  buscardor: string = "";
+  mostrar: boolean = true;
+  
   class: string = "";
   success: number = 0;
   msg: string = "";
