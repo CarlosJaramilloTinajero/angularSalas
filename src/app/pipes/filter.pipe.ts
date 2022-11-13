@@ -14,20 +14,22 @@ export class FilterPipe implements PipeTransform {
     // Este metodo es el que hace la logiica del pipe
     // En este metodo lo que hacemos es hacer una busqueda de el parametro 'values', con la ayuda de el parametro 'arg'
     // esta busqueda se enfoca en las porpiedades 'a_nombre_de' y sala_id' de los objetos 'Reservas'
-    transform(values: Reservas[], arg: string, salas: Sala[]): Reservas[] {
+    transform(reservas: Reservas[], arg: string, salas: Sala[]): Reservas[] {
 
-        if (!arg || arg?.length < 3) return values;
+        if (!arg || arg?.length < 3) return reservas;
 
         let result: Reservas[] = [];
 
-        for (const value of values) {
-            if (value.a_nombre_de.toUpperCase().indexOf(arg.toUpperCase()) > -1) {
-                result = [...result, value];
+        let mostrar: Reservas[] = [];
+
+        for (const reserva of reservas) {
+            if (reserva.a_nombre_de.toUpperCase().indexOf(arg.toUpperCase()) > -1) {
+                result = [...result, reserva];
             }
 
             salas.forEach(sala => {
-                if (sala.nombre.toUpperCase().indexOf(arg.toUpperCase()) > -1 && value.sala_id == sala.id) {
-                    result = [...result, value];
+                if (sala.nombre.toUpperCase().indexOf(arg.toUpperCase()) > -1 && reserva.sala_id == sala.id) {
+                    result = [...result, reserva];
                 }
             });
 

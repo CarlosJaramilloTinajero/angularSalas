@@ -15,7 +15,7 @@
             <hr style="margin: 10px;">
             
             <app-tabla-reservas *ngIf="mostrar" (editarReserva)="updateReserva($event);"
-                (eliminarReservaEvento)="deleteReserva($event);" [reservas]="(reservasFilter)" [salas]="salas" [maxReservas]="reservas.length">
+                (eliminarReservaEvento)="deleteReserva($event);" [reservas]="(reservasFilter)" [maxReservas]="reservas.length">
             </app-tabla-reservas>
 
             <app-calendario *ngIf="!mostrar" [salas]="salas" [reservas]="reservas"></app-calendario>

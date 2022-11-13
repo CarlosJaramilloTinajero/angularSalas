@@ -9,17 +9,11 @@ import { Reservas } from '../Models/reservas';
 export class ReservasService {
 
   reservas: Reservas[] = [];
-  // LocalHost
-  urlGet: string = "http://127.0.0.1:8000/getReservas";
-  urlDelete: string = "http://127.0.0.1:8000/deleteReserva/";
-  urlPut: string = "http://127.0.0.1:8000/updateReserva/";
-  urlPost: string = "http://127.0.0.1:8000/addReserva";
-
-  // HostLocal
-  // urlGet: string = "http://192.168.100.74/salas/public/getReservas";
-  // urlDelete: string = "http://192.168.100.74/salas/public/deleteReserva/";
-  // urlPut: string = "http://192.168.100.74/salas/public/updateReserva/";
-  // urlPost: string = "http://192.168.100.74/salas/public/addReserva";
+  // API
+  urlGet: string = "https://salas.peliculas.beauty/getReservas";
+  urlDelete: string = "https://salas.peliculas.beauty/deleteReserva/";
+  urlPut: string = "https://salas.peliculas.beauty/updateReserva/";
+  urlPost: string = "https://salas.peliculas.beauty/addReserva";
 
   constructor(private http: HttpClient) { }
 

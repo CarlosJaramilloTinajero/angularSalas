@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Reservas } from 'src/app/Models/reservas';
 import { Sala } from 'src/app/Models/sala';
+import { SalaServiceService } from 'src/app/Services/sala-service.service';
 
 @Component({
   selector: 'app-tabla-reservas',
@@ -13,7 +14,7 @@ export class TablaReservasComponent implements OnInit {
   minDia: string = "";
   @Input() mostrarAcciones: boolean = true;
   @Input() reservas: Reservas[] = [];
-  @Input() salas: Sala[] = [];
+  salas: Sala[] = [];
   @Output() eliminarReservaEvento: EventEmitter<Reservas> = new EventEmitter();
   @Output() editarReserva: EventEmitter<Reservas> = new EventEmitter();
   reservaModal: Reservas = new Reservas();
@@ -22,15 +23,20 @@ export class TablaReservasComponent implements OnInit {
 
   // Maximo filas tabla
   @Input() maxReservas: number = 0;
-  maxFilas: number = 25;
+  maxFilas: number = 15;
   maxFilasInput = this.maxFilas;
   pagina: number = 1;
   paginaA: number = 0;
 
-  constructor() { }
+  constructor(private salasService: SalaServiceService) { }
 
   ngOnInit(): void {
     this.minDia = this.getDiaActual();
+    this.getSalas();
+  }
+
+  getSalas() {
+    this.salasService.getSalas().subscribe(data => this.salas = data);
   }
 
   Modal(reserva: Reservas) {

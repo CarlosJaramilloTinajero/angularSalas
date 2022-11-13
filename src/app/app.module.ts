@@ -25,6 +25,7 @@ import { AlertComponent } from './components/alert/alert.component'
 import { FilterPipe } from './pipes/filter.pipe';
 import { CalendarioReservasComponent } from './components/calendario-reservas/calendario-reservas.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
+import { GetSalaPipe } from './Pipes/get-sala.pipe';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
     AlertComponent,
     FilterPipe,
     CalendarioReservasComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    GetSalaPipe
   ],
   imports: [
     BrowserModule,

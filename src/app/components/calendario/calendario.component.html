@@ -51,11 +51,11 @@
             <div class="modal-body">
 
                 <div *ngIf="reservasModal.length == 0">
-                    <h4>No hay pedidos en este dia</h4>
+                    <h4>No hay reservas en este dia</h4>
                 </div>
 
-                <div style="width: 94%; margin-left: auto; margin-right: auto;">
-                    <app-tabla-reservas [salas]="salas" [reservas]="reservasModal" [mostrarAcciones]="false"
+                <div *ngIf="reservasModal.length > 0" style="width: 94%; margin-left: auto; margin-right: auto;">
+                    <app-tabla-reservas [reservas]="reservasModal" [mostrarAcciones]="false"
                         [maxReservas]="reservas.length">
                     </app-tabla-reservas>
                 </div>

@@ -4,7 +4,7 @@
         <app-alert (quitarAlert)="msg=''; success=0; class='';" [msg]="msg" [mostrar]="success" [class]="class">
         </app-alert>
         <app-tabla-reservas (editarReserva)="updateReserva($event);" (eliminarReservaEvento)="deleteReserva($event);"
-            [reservas]="reservas" [salas]="salas" [maxReservas]="reservas.length">
+            [reservas]="reservas" [maxReservas]="reservas.length">
         </app-tabla-reservas>
     </div>
 

@@ -1,5 +1,6 @@
 <div class="buscador">
-    <input type="text" name="" id="" placeholder="Buscar" [(ngModel)]="buscardor" class="form-control">
+    <input type="text" name="" id="" placeholder="Buscar" [(ngModel)]="buscardor"
+        (ngModelChange)="pagina = 1; paginaA = 0;" class="form-control">
 </div>
 <table class="table table-sm">
     <thead>
@@ -17,11 +18,9 @@
     <tbody>
         <tr *ngFor="let reserva of (reservas | filterReservas:buscardor:salas); let indice=index;">
             <th *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA" scope="row">{{indice+1}}</th>
-            <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">
-                <app-obtener-sala [salas]="salas" [reserva]="reserva"></app-obtener-sala>
-            </td>
+            <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva | getSala: salas}}</td>
             <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva.a_nombre_de}}</td>
-            <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva.dia}}</td>
+            <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva.dia | date }}</td>
             <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva.desde}}</td>
             <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva.hasta}}</td>
             <td *ngIf="indice < maxFilas * pagina && indice >= maxFilas * paginaA">{{reserva.observaciones}}</td>
@@ -55,7 +54,7 @@
 </table>
 
 <!-- Controladores tabla -->
-<div class="d-flex justify-content-center ">
+<div class="d-flex justify-content-center " style="position: relative;">
     <div class="p-2">
         <button (click)="anterior()" class="btn btn-dark"
             [ngClass]="{'opacity-25':pagina==1, 'btnG':pagina > 1}">Anterior</button>
