@@ -1,14 +1,41 @@
 <app-titulo2 titulo="Agregar nueva sala"></app-titulo2>
 <div class="contenedor conteedorAbajo w-50" style="margin-top: 0px; padding: 20px; padding-top: 40px;">
-    <form class="centrarTabla" action="" (ngSubmit)="onSubmit()">
-        <label for="" class="form-label" style="color: black;">Nombre de la sala {{nombre}}</label>
-        <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control" required><br>
+    <form class="centrarTabla" action="" (ngSubmit)="onSubmit(formAgregar)" #formAgregar="ngForm">
 
-        <label for="" class="form-label" style="color: black;">Ubicacion</label>
-        <textarea id="" class="form-control" [(ngModel)]="ubicacion" name="ubicacion" rows="2" cols="50"></textarea><br>
+        <div class="contenedorInput">
+            <label for="" class="form-label" style="color: black;">* Nombre de la sala</label>
+            <input type="text" name="nombre" [(ngModel)]="nombre" class="form-control"
+                [ngClass]="{'inputInvalid': nombreModel.invalid && (nombreModel.touched && nombreModel.dirty || inputInvalid[0] == 'invalido')} "
+                required #nombreModel="ngModel">
+            <div class="contenedorInput"
+                *ngIf="nombreModel.invalid && (nombreModel.touched && nombreModel.dirty|| inputInvalid[0] == 'invalido') ">
+                <h6 class="Invalid" *ngIf="nombreModel.errors?.['required'] ">* Este campo es necesario *</h6>
+            </div>
+        </div>
 
-        <label for="" class="form-label" style="color: black;">Descripcion</label>
-        <textarea id="" name="descripcion" rows="2" [(ngModel)]="descripcion" cols="50" class="form-control"></textarea><br>
+        <div class="contenedorInput">
+            <label for="" class="form-label" style="color: black;">* Ubicacion</label>
+            <textarea name="ubicacion" [(ngModel)]="ubicacion" class="form-control" rows="2" cols="50"
+                [ngClass]="{'inputInvalid': ubicacionModel.invalid && (ubicacionModel.touched && ubicacionModel.dirty || inputInvalid[1] == 'invalido')}"
+                required #ubicacionModel="ngModel"></textarea>
+            <div class="contenedorInput"
+                *ngIf="ubicacionModel.invalid && (ubicacionModel.touched && ubicacionModel.dirty|| inputInvalid[1] == 'invalido') ">
+                <h6 class="Invalid" *ngIf="ubicacionModel.errors?.['required'] || inputInvalid[1] == 'invalido'">* Este
+                    campo es necesario *</h6>
+            </div>
+        </div>
+
+        <div class="contenedorInput">
+            <label for="" class="form-label" style="color: black;">* Descripcion</label>
+            <textarea name="descripcion" [(ngModel)]="descripcion" class="form-control" rows="2" cols="50"
+                [ngClass]="{'inputInvalid': descripcionModel.invalid && (descripcionModel.touched && descripcionModel.dirty || inputInvalid[2] == 'invalido')}"
+                required #descripcionModel="ngModel"></textarea>
+            <div class="contenedorInput"
+                *ngIf="descripcionModel.invalid && (descripcionModel.touched && descripcionModel.dirty || inputInvalid[2] == 'invalido')">
+                <h6 class="Invalid" *ngIf="descripcionModel.errors?.['required'] || inputInvalid[2] == 'invalido'">*
+                    Este campo es necesario *</h6>
+            </div>
+        </div>
 
         <label for="" class="form-label" style="color: black;">Estado</label>
         <select class="form-select" name="estado" [(ngModel)]="estado">

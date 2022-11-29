@@ -1,4 +1,4 @@
-<form action="" method="POST" (ngSubmit)="onSubmit();">
+<form action="" method="POST" (ngSubmit)="onSubmit(form);" #form="ngForm">
 
     <label for="" class="form-label" style="color: black;"><strong>Seleccionar sala</strong></label>
     <select class="form-select" name="sala" [(ngModel)]="reserva.sala_id">
@@ -6,26 +6,61 @@
         </option>
     </select><br>
 
-    <label for="" class="form-label" style="color: black;"><strong>Reserva a nombre de:</strong></label>
-    <input type="text" name="a_nombre_de" required [(ngModel)]="reserva.a_nombre_de" class="form-control" id=""><br>
 
-    <label for="" class="form-label" style="color: black;"><strong>Dia de reserva:</strong></label>
-    <input type="date" name="dia" id="dia" [min]="minDia" [(ngModel)]="reserva.dia" class="form-control" required
-        #name="ngModel"><br>
+    <div class="contenedorInput">
+        <label for="" class="form-label" style="color: black;"><strong>* Reservar a nombre de:</strong></label>
+        <input type="text" name="a_nombre_de" [(ngModel)]="reserva.a_nombre_de" class="form-control"
+            [ngClass]="{'inputInvalid': nombreModel.invalid && (nombreModel.touched && nombreModel.dirty || inputInvalid[0] == 'invalido')} "
+            required #nombreModel="ngModel">
+        <div class="contenedorInput"
+            *ngIf="nombreModel.invalid && (nombreModel.touched && nombreModel.dirty|| inputInvalid[0] == 'invalido') ">
+            <h6 class="Invalid" *ngIf="nombreModel.errors?.['required'] ">* Este campo es necesario *</h6>
+        </div>
+    </div>
 
-    <!-- <div *ngIf=""></div> -->
+    <div class="contenedorInput">
+        <label for="" class="form-label" style="color: black;"><strong>* Dia de reserva</strong></label>
+        <input type="date" name="dia" [(ngModel)]="reserva.dia" class="form-control" [min]="minDia"
+            [ngClass]="{'inputInvalid': diaModel.invalid && (diaModel.touched && diaModel.dirty || inputInvalid[1] == 'invalido')} "
+            required #diaModel="ngModel">
+        <div class="contenedorInput"
+            *ngIf="diaModel.invalid && (diaModel.touched && diaModel.dirty|| inputInvalid[1] == 'invalido') ">
+            <h6 class="Invalid" *ngIf="diaModel.errors?.['required'] ">* Este campo es necesario *</h6>
+        </div>
+    </div>
 
-    <label for="" class="form-label" style="color: black;"><strong>Desde:</strong></label>
-    <input type="time" name="desde" class="form-control" [(ngModel)]="reserva.desde" id="inicio"
-        required><br>
+    <div class="contenedorInput">
+        <label for="" class="form-label" style="color: black;"><strong>* Desde:</strong></label>
+        <input type="time" name="desde" [(ngModel)]="reserva.desde" class="form-control"
+            [ngClass]="{'inputInvalid': desdeModel.invalid && (desdeModel.touched && desdeModel.dirty || inputInvalid[2] == 'invalido')} "
+            required #desdeModel="ngModel">
+        <div class="contenedorInput"
+            *ngIf="desdeModel.invalid && (desdeModel.touched && desdeModel.dirty|| inputInvalid[2] == 'invalido') ">
+            <h6 class="Invalid" *ngIf="desdeModel.errors?.['required'] ">* Este campo es necesario *</h6>
+        </div>
+    </div>
 
-    <label for="" class="form-label" style="color: black;"><strong>Hasta:</strong></label>
-    <input type="time" name="hasta" class="form-control" [(ngModel)]="reserva.hasta" id="final" required><br>
-    <div id="alerta"></div>
+    <div class="contenedorInput">
+        <label for="" class="form-label" style="color: black;"><strong>* Hasta:</strong></label>
+        <input type="time" name="hasta" [(ngModel)]="reserva.hasta" class="form-control"
+            [ngClass]="{'inputInvalid': hastaModel.invalid && (hastaModel.touched && hastaModel.dirty || inputInvalid[3] == 'invalido')} "
+            required #hastaModel="ngModel">
+        <div class="contenedorInput"
+            *ngIf="hastaModel.invalid && (hastaModel.touched && hastaModel.dirty|| inputInvalid[3] == 'invalido') ">
+            <h6 class="Invalid" *ngIf="hastaModel.errors?.['required'] ">* Este campo es necesario *</h6>
+        </div>
+    </div>
 
-    <label for="" class="form-label" style="color: black;"><strong>Observaciones</strong></label>
-    <textarea name="observaciones" id="" class="form-control" [(ngModel)]="reserva.observaciones" cols="2" rows="3"
-        required></textarea><br>
+    <div class="contenedorInput" style="height: 130px;">
+        <label for="" class="form-label" style="color: black;"><strong>* Observaciones</strong></label>
+        <textarea name="observaciones" [(ngModel)]="reserva.observaciones" class="form-control" rows="3" cols="2"
+            [ngClass]="{'inputInvalid': observacionesModel.invalid && (observacionesModel.touched && observacionesModel.dirty || inputInvalid[4] == 'invalido')} "
+            required #observacionesModel="ngModel"></textarea>
+        <div class="contenedorInput"
+            *ngIf="observacionesModel.invalid && (observacionesModel.touched && observacionesModel.dirty|| inputInvalid[4] == 'invalido') ">
+            <h6 class="Invalid" *ngIf="observacionesModel.errors?.['required'] ">* Este campo es necesario *</h6>
+        </div>
+    </div>
 
     <app-alert [class]="classA" [mostrar]="mostrarA" [msg]="msgA" [habilitarQuitarAlert]="false"></app-alert>
 

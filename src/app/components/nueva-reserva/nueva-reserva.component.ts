@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Reservas } from 'src/app/Models/reservas';
 import { Sala } from 'src/app/Models/sala';
 
@@ -8,6 +9,9 @@ import { Sala } from 'src/app/Models/sala';
   styleUrls: ['./nueva-reserva.component.css']
 })
 export class NuevaReservaComponent implements OnInit {
+
+  inputInvalid: string[] = ["", "", ""];
+
 
   msgA: string = "";
   classA: string = "";
@@ -24,10 +28,33 @@ export class NuevaReservaComponent implements OnInit {
     this.minDia = this.getDiaActual();
   }
 
-  onSubmit() {
-    if (this.validar()) {
-      this.addReserva.emit(this.reserva);
-      this.reserva = new Reservas();
+  onSubmit(form: NgForm) {
+
+    if (this.reserva.a_nombre_de == "" || this.reserva.dia == "" || this.reserva.desde == "" || this.reserva.hasta == "" || this.reserva.observaciones == "") {
+      if (this.reserva.a_nombre_de == "") {
+        this.inputInvalid[0] = "invalido";
+      }
+      if (this.reserva.dia == "") {
+        this.inputInvalid[1] = "invalido";
+      }
+      if (this.reserva.desde == "") {
+        this.inputInvalid[2] = "invalido";
+      }
+      if (this.reserva.hasta == "") {
+        this.inputInvalid[3] = "invalido";
+      }
+      if (this.reserva.observaciones == "") {
+        this.inputInvalid[4] = "invalido";
+      }
+    } else {
+      if (this.validar()) {
+        this.addReserva.emit(this.reserva);
+        form.reset();
+        this.reserva = new Reservas();
+        for (let i = 0; i < this.inputInvalid.length; i++) {
+          this.inputInvalid[i] = "";
+        }
+      }
     }
   }
 

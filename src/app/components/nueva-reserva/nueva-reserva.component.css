@@ -1,0 +1,19 @@
+.contenedorInput{
+    height: 100px;
+    width: 100%;
+}
+
+.Invalid{
+    color: rgb(122, 5, 5);
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.inputInvalid{
+    border: unset;
+    border: 1px rgb(122, 5, 5) solid;
+    box-shadow: 0px 0px 6px 0px inset rgb(122, 5, 5, 0.4);
+}
